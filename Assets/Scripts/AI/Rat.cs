@@ -1,10 +1,11 @@
+using System;
 using Food;
 using Helper;
 using UnityEngine;
 
 namespace AI
 {
-    public class Villager : Actor, IFood
+    public class Rat : Actor, IFood
     {
         public void Consume()
         {
@@ -12,10 +13,7 @@ namespace AI
             ActorManager.Instance.RemoveActor(this);
         }
 
-        public void AdjustToGrid()
-        {
-            throw new System.NotImplementedException();
-        }
+        public void AdjustToGrid() { }
 
         public override void Act()
         {

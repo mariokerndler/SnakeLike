@@ -6,7 +6,7 @@ namespace AI
 {
     public class ActorManager : MonoBehaviour
     {
-        public readonly List<IActor> _actors = new List<IActor>();
+        private readonly List<IActor> _actors = new List<IActor>();
 
         private static ActorManager _instance;
         public static ActorManager Instance => _instance;

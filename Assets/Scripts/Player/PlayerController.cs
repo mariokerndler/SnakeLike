@@ -104,6 +104,12 @@ namespace Player
         }
         private void OnTriggerEnter2D(Collider2D col)
         {
+            if (col.gameObject.tag.Equals("Tail"))
+            {
+                Debug.Log("End Game");
+                return;
+            }
+            
             var food = col.gameObject.GetComponent<IFood>();
             if (food == null) return;
 

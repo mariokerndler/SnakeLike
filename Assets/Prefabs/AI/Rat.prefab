@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5948180734144269339}
-  - component: {fileID: 5948180734144269340}
   - component: {fileID: 5948180734144269337}
   - component: {fileID: 5948180734144269338}
+  - component: {fileID: 7084620392425541836}
   m_Layer: 0
-  m_Name: Villager
+  m_Name: Rat
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,21 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5948180734144269340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5948180734144269341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9954969e73234d1f98aa01aef3541aba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useRandomActCycle: 1
-  randomActCycleRange: {x: 0, y: 2}
-  actCycle: 0
 --- !u!61 &5948180734144269337
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96,6 +81,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &7084620392425541836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5948180734144269341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6a1820d56e44fba1fd69f82b65ab37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useRandomActCycle: 0
+  randomActCycleRange: {x: 0, y: 0}
+  actCycle: 0
 --- !u!1 &5948180734439260724
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3414918293368190892, guid: 57443d6887e31164bbcb8673605c4b70, type: 3}
+  m_Sprite: {fileID: -7212916489932471773, guid: 57443d6887e31164bbcb8673605c4b70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
