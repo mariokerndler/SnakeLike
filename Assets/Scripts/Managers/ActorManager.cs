@@ -1,28 +1,14 @@
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using Helper;
 using UnityEngine;
 
 namespace AI
 {
-    public class ActorManager : MonoBehaviour
+    public class ActorManager : Singleton<ActorManager>
     {
         private readonly List<IActor> _actors = new List<IActor>();
 
-        private static ActorManager _instance;
-        public static ActorManager Instance => _instance;
-
-        private void Awake()
-        {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-        }
-        
         private void Start()
         {
             // Get all actors

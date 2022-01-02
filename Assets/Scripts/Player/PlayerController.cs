@@ -1,8 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AI;
 using Food;
-using Helper;
+using Managers;
 using UnityEngine;
 
 namespace Player
@@ -44,20 +45,20 @@ namespace Player
                 _tail.Insert(0, g.transform);
                 _ate = false;
             }
-            else if (_tail.Count > 0 && TilemapHelper.Instance.CanMove(transform.position, direction))
+            else if (_tail.Count > 0 && TilemapManager.Instance.CanMove(transform.position, direction))
             {
                 _tail.Last().position = prePos;
                 _tail.Insert(0, _tail.Last());
                 _tail.RemoveAt(_tail.Count - 1);
             }
 
-            if (!TilemapHelper.Instance.CanMove(transform.position, direction)) return;
+            if (!TilemapManager.Instance.CanMove(transform.position, direction)) return;
             transform.position += (Vector3) direction;
             RotateSprite(direction);
             UpdateTail();
 
             ActorManager.Instance.UpdateAllActors();
-            
+
             _lastDirection = direction;
         }
 
@@ -102,6 +103,7 @@ namespace Player
                 prevObject = tailObj.gameObject;
             }
         }
+        
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.tag.Equals("Tail"))

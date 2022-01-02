@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,7 @@ namespace AI
         [SerializeField] protected Vector2 randomActCycleRange;
         [SerializeField] protected int actCycle;
         private int _currentCycle;
+        private float _lerpDuration = 0.3f;
 
         private void Start()
         {
@@ -48,13 +50,20 @@ namespace AI
             return (int) Random.Range(randomActCycleRange.x, randomActCycleRange.y);
         }
         
-        protected bool IsOccupiedByActor(Vector2 position, Vector2 direction)
+        protected IEnumerator LerpPosition(Vector3 direction)
         {
-            var hit = Physics2D.Raycast(position, direction);
+            float timeElapsed = 0;
+            var targetPosition = transform.position + direction;
 
-            if (hit.collider == null) return false;
-            var food = hit.collider.gameObject.GetComponent<IActor>();
-            return food != null;
-        }
+            while (timeElapsed < _lerpDuration)
+            {
+                var valueToLerp = Vector3.Lerp(transform.position, targetPosition, timeElapsed / _lerpDuration);
+                transform.position = valueToLerp;
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            transform.position = targetPosition;
+        }  
     }
 }

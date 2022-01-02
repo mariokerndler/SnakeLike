@@ -1,6 +1,6 @@
-using System;
 using Food;
 using Helper;
+using Managers;
 using UnityEngine;
 
 namespace AI
@@ -25,10 +25,11 @@ namespace AI
             do
             {
                 randomDirection = GetRandomDirection();
-            } while (!TilemapHelper.Instance.CanMove(transform.position, randomDirection) && IsOccupiedByActor(transform.position, randomDirection));
+            } while (!TilemapManager.Instance.CanMove(transform.position, randomDirection));
 
             // 2. Move to Position
-            transform.position += randomDirection;
+            //transform.position += randomDirection;
+            StartCoroutine(LerpPosition(randomDirection));
         }
     }
 }
